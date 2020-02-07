@@ -5,7 +5,9 @@ const unusedFilename = require('unused-filename');
 const pupa = require('pupa');
 const extName = require('ext-name');
 
-const {app, shell, dialog} = electron;
+const app = electron.app || electron.remote.app;
+const shell = electron.shell || electron.remote.shell;
+const dialog = electron.dialog || electron.remote.dialog;
 const BrowserWindow = electron.BrowserWindow || electron.remote.BrowserWindow;
 
 const getFilenameFromMime = (name, mime) => {
