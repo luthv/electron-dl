@@ -1,9 +1,11 @@
 'use strict';
 const path = require('path');
-const {app, BrowserWindow, shell, dialog} = require('electron');
+const {app, shell, dialog} = require('electron');
 const unusedFilename = require('unused-filename');
 const pupa = require('pupa');
 const extName = require('ext-name');
+
+const BrowserWindow = electron.BrowserWindow || electron.remote.BrowserWindow;
 
 const getFilenameFromMime = (name, mime) => {
 	const extensions = extName.mime(mime);
